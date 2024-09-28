@@ -28,7 +28,7 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan (PRD)
-        run: terraform plan -var-file="infra/prd/terraform.prd.tfvars"
+        run: terraform plan -var-file="prd/terraform.prd.tfvars"
 
       - name: Terraform Apply (PRD)
-        run: terraform apply -auto-approve -var-file="infra/prd/terraform.prd.tfvars"
+        run: terraform apply -auto-approve -var-file="prd/terraform.prd.tfvars"
