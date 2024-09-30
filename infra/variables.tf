@@ -1,15 +1,15 @@
 variable "aws_region" {
-  default = "us-east-1"
+  default = "us-east-2"
 }
 
 variable "db_name" {
-  default = "mydb"
+  default = "techfood_prd"
 }
 
 variable "db_username" {
-  default = "admin"
+  default = "techfood_prd"
 }
 
 variable "db_password" {
-  default = "password"
+  default = "techfood@2024"
 }

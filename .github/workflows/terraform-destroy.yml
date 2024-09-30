@@ -34,10 +34,10 @@ jobs:
           fi
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform -chdir=infra init
 
       - name: Terraform Plan (Destroy)
-        run: terraform plan -destroy -var-file="prd/terraform.prd.tfvars"
+        run: terraform -chdir=infra plan -destroy -var-file="prd/terraform.prd.tfvars"
 
       - name: Terraform Destroy (PRD)
-        run: terraform destroy -auto-approve -var-file="prd/terraform.prd.tfvars"
+        run: terraform -chdir=infra destroy -auto-approve -var-file="prd/terraform.prd.tfvars"
