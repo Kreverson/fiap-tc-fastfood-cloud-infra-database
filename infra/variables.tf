@@ -6,6 +6,10 @@ variable "state_file" {
   type = string
 }
 
+variable "environment" {
+  type        = string
+}
+
 variable "db_name" {
   type = string
 }

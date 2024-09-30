@@ -2,7 +2,7 @@ data "terraform_remote_state" "network" {
   backend = "s3"
   config = {
     bucket = var.state_file
-    key    = "vpc/terraform.tfstate"
+    key    = "${var.environment}/vpc/terraform.tfstate"
     region = var.aws_region
   }
 }
@@ -11,7 +11,7 @@ data "terraform_remote_state" "rds" {
   backend = "s3"
   config = {
     bucket = var.state_file
-    key    = "rds/terraform.tfstate"
+    key    = "${var.environment}/rds/terraform.tfstate"
     region = var.aws_region
   }
 }
