@@ -25,10 +25,10 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform -chdir=infra init
 
-      - name: Terraform Plan (PRD)
-        run: terraform plan -var-file="prd/terraform.prd.tfvars"
+      - name: Terraform Plan for Production
+        run: terraform -chdir=infra plan -var-file="prd/terraform.prd.tfvars"
 
-      - name: Terraform Apply (PRD)
-        run: terraform apply -auto-approve -var-file="prd/terraform.prd.tfvars"
+      - name: Terraform Apply
+        run: terraform -chdir=infra apply -auto-approve -var-file="prd/terraform.prd.tfvars"
