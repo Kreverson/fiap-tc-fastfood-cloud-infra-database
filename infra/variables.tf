@@ -7,7 +7,7 @@ variable "state_file" {
 }
 
 variable "environment" {
-  type        = string
+  type = string
 }
 
 variable "db_name" {

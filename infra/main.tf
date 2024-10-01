@@ -9,6 +9,6 @@ resource "aws_db_instance" "mysql" {
 }
 
 resource "aws_db_subnet_group" "db_subnet_group" {
-  name       = "fastfood-db-subnet-group"
-  subnet_ids = data.terraform_remote_state.cloud-infra-api.outputs.private_subnet_ids
+  name       = "${var.environment}-fastfood-db-subnet-group"
+  subnet_ids = data.terraform_remote_state.cloud-infra-api.outputs.rds_private_subnet_ids
 }
