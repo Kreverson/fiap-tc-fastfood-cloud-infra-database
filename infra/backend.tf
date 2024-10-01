@@ -1,25 +1,16 @@
-data "terraform_remote_state" "network" {
-  backend = "s3"
-  config = {
+terraform {
+  backend "s3" {
     bucket = var.state_file
-    key    = "${var.environment}/vpc/terraform.tfstate"
+    key    = "${var.environment}/cloud-infra-database/terraform.tfstate"
     region = var.aws_region
   }
 }
 
-data "terraform_remote_state" "rds" {
+data "terraform_remote_state" "cloud-infra-api" {
   backend = "s3"
   config = {
     bucket = var.state_file
-    key    = "${var.environment}/rds/terraform.tfstate"
+    key    = "${var.environment}/cloud-infra-api/terraform.tfstate"
     region = var.aws_region
   }
-}
-
-output "rds_endpoint" {
-  value = data.terraform_remote_state.rds.outputs.db_instance_endpoint
-}
-
-output "rds_instance_id" {
-  value = data.terraform_remote_state.rds.outputs.db_instance_id
 }
